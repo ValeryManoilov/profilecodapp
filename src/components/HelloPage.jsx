@@ -1,7 +1,7 @@
 const HelloPage = () => {
     return(
         <div>
-            <p>Username</p>
+            <p>MyName</p>
             <p>Password</p>
         </div>
     )
