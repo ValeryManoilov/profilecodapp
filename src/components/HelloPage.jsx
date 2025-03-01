@@ -39,6 +39,16 @@ const validScheme = Yup.object().shape({
 
 const HelloPage = () => {
 
+    const [telegramName, setName] = useState()
+
+    let tg = window.Telegram.WebApp;
+
+    tg.expand();
+    
+    useEffect(() => {
+        setName(tg.initDataUnsafe.user.first_name)
+        console.log(telegramName)
+    }, [])
     function AddUser(values)
     {
         axios.post("https://localhost:7062/user/add", 
@@ -77,6 +87,7 @@ const HelloPage = () => {
     })
     return(
         <RegistrationContainer>
+            <script src="https://telegram.org/js/telegram-web-app.js"></script>
             <RegistrationContent>
                 <Title>
                     RegistrationForm
