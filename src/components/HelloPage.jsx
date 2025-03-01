@@ -46,7 +46,7 @@ const HelloPage = () => {
         if (window.Telegram && window.Telegram.WebApp)
         {
             let tg = window.Telegram.WebApp;
-            const user = tg.initDataUnsafe.user;
+            const user = false;
             tg.expand();
             if (user)
             {
