@@ -47,14 +47,11 @@ const HelloPage = () => {
         {
             let tg = window.Telegram.WebApp;
             console.log(tg)
-            const user = tg.initData.user;
+            const user = tg.initDataUnsafe.user;
             tg.expand();
             if (user)
             {
-                setName(user)
-            }
-            else{
-                setName("не найдено")
+                setName(user.id)
             }
         }
     }, [])
