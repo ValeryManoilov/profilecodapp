@@ -43,10 +43,11 @@ const HelloPage = () => {
     
     
     useEffect(() => {
-        if (window.Telegram)
+        if (window.Telegram && window.Telegram.WebApp)
         {
             let tg = window.Telegram.WebApp;
-            const user = tg.initDataUnsafe.user;
+            console.log(tg)
+            const user = tg.initData.user;
             tg.expand();
             if (user)
             {
