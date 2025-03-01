@@ -43,7 +43,7 @@ const HelloPage = () => {
     
     
     useEffect(() => {
-        if (window.Telegram)
+        if (window.Telegram.WebApp)
         {
             setName("Test2")
             // let tg = window.Telegram.WebApp;
