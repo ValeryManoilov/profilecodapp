@@ -45,17 +45,16 @@ const HelloPage = () => {
     useEffect(() => {
         if (window.Telegram)
         {
-            setName("Test2")
-            // let tg = window.Telegram.WebApp;
-            // const user = tg.initDataUnsafe.user;
-            // tg.expand();
-            // if (user)
-            // {
-            //     setName(user)
-            // }
-            // else{
-            //     setName("не найдено")
-            // }
+            let tg = window.Telegram.WebApp;
+            const user = tg.initDataUnsafe.user;
+            tg.expand();
+            if (user)
+            {
+                setName(user)
+            }
+            else{
+                setName("не найдено")
+            }
         }
     }, [])
 
