@@ -43,21 +43,22 @@ const HelloPage = () => {
     
     
     useEffect(() => {
-        let tg1 = window.Telegram;
-        let tg2 = window.Telegram.WebView;
-        console.log(tg1, tg2)
-        if (window.Telegram && window.Telegram.WebApp)
-        {
-            let tg = window.Telegram.WebApp;
-            console.log(tg)
-            const user = tg.initDataUnsafe.user;
+        console.log("Checking Telegram WebApp...");
+        console.log("window.Telegram:", window.Telegram);
+        console.log("window.Telegram.WebApp:", window.Telegram?.WebApp);
+    
+        if (window.Telegram && window.Telegram.WebApp) {
+            const tg = window.Telegram.WebApp;
+            console.log("Telegram WebApp is ready:", tg);
             tg.expand();
-            if (user)
-            {
-                setName(user.id)
+            const user = tg.initDataUnsafe.user;
+            if (user) {
+                setName(user.id);
             }
+        } else {
+            console.error("Telegram WebApp is not available");
         }
-    }, [])
+    }, []);
 
     function AddUser(values)
     {
