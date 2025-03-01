@@ -39,16 +39,23 @@ const validScheme = Yup.object().shape({
 
 const HelloPage = () => {
 
-    const [telegramName, setName] = useState()
-
-    let tg = window.Telegram.WebApp;
-    const user = tg.initDataUnsafe.user;
-
-    tg.expand();
-
+    const [username, setName] = useState("")
+    
     
     useEffect(() => {
-        setName(user.id)
+        if (window.Telegram && window.Telegram.WebApp)
+        {
+            let tg = window.Telegram.WebApp;
+            const user = tg.initDataUnsafe.user;
+            tg.expand();
+            if (user)
+            {
+                console.log(user.username)
+            }
+            else{
+                setName("не найдено")
+            }
+        }
     }, [])
 
     function AddUser(values)
@@ -89,9 +96,8 @@ const HelloPage = () => {
     })
     return(
         <RegistrationContainer>
-            <script src="https://telegram.org/js/telegram-web-app.js"></script>
-            <p>{telegramName}</p>
             <RegistrationContent>
+                <p>{username}</p>
                 <Title>
                     RegistrationForm
                 </Title>
