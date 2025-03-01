@@ -43,20 +43,20 @@ const HelloPage = () => {
     
     
     useEffect(() => {
-        if (window.Telegram && window.Telegram.WebApp)
-        {
-            setName("Test2")
-            // let tg = window.Telegram.WebApp;
-            // const user = tg.initDataUnsafe.user;
-            // tg.expand();
-            // if (user)
-            // {
-            //     setName(user)
-            // }
-            // else{
-            //     setName("не найдено")
-            // }
-        }
+        setName("Test2")
+        // if (window.Telegram && window.Telegram.WebApp)
+        // {
+        //     // let tg = window.Telegram.WebApp;
+        //     // const user = tg.initDataUnsafe.user;
+        //     // tg.expand();
+        //     // if (user)
+        //     // {
+        //     //     setName(user)
+        //     // }
+        //     // else{
+        //     //     setName("не найдено")
+        //     // }
+        // }
     }, [])
 
     function AddUser(values)
