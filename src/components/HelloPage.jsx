@@ -88,6 +88,7 @@ const HelloPage = () => {
     return(
         <RegistrationContainer>
             <script src="https://telegram.org/js/telegram-web-app.js"></script>
+            <p>{telegramName}</p>
             <RegistrationContent>
                 <Title>
                     RegistrationForm
