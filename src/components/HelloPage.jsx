@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik"
 
@@ -42,13 +42,15 @@ const HelloPage = () => {
     const [telegramName, setName] = useState()
 
     let tg = window.Telegram.WebApp;
+    const user = tg.initDataUnsafe.user;
 
     tg.expand();
+
     
     useEffect(() => {
-        setName(tg.initDataUnsafe.user.first_name)
-        console.log(telegramName)
+        setName(user.id)
     }, [])
+
     function AddUser(values)
     {
         axios.post("https://localhost:7062/user/add", 
