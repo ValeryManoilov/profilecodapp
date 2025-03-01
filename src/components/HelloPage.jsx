@@ -50,7 +50,6 @@ const HelloPage = () => {
             tg.expand();
             if (user)
             {
-                console.log(user.id)
                 setName(user.id)
             }
             else{
@@ -99,7 +98,7 @@ const HelloPage = () => {
         <RegistrationContainer>
             <RegistrationContent>
                 <p>{username}</p>
-                <Title>
+                {/* <Title>
                     RegistrationForm
                 </Title>
                 <InputContainer>
@@ -155,7 +154,7 @@ const HelloPage = () => {
                     />
                     <button type="submit">submit</button>
                 </form>
-                </InputContainer>
+                </InputContainer> */}
             </RegistrationContent>
         </RegistrationContainer>
     )
