@@ -51,6 +51,7 @@ const HelloPage = () => {
             if (user)
             {
                 console.log(user.id)
+                setName(user.id)
             }
             else{
                 setName("не найдено")
