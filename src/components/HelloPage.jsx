@@ -50,7 +50,7 @@ const HelloPage = () => {
             tg.expand();
             if (user)
             {
-                console.log(user.username)
+                console.log(user.id)
             }
             else{
                 setName("не найдено")
