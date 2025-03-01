@@ -41,7 +41,6 @@ const HelloPage = () => {
 
     function AddUser(values)
     {
-        console.log(values)
         axios.post("https://localhost:7062/user/add", 
             {
                 userName: values.username,
