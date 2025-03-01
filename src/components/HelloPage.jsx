@@ -44,7 +44,7 @@ const HelloPage = () => {
     
     useEffect(() => {
         let tg1 = window.Telegram;
-        let tg2 = window.Telegram.WebApp;
+        let tg2 = window.Telegram.WebView;
         console.log(tg1, tg2)
         if (window.Telegram && window.Telegram.WebApp)
         {
