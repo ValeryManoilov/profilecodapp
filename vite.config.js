@@ -7,5 +7,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'build',
+  },
+  server: {
+    allowedHosts: [
+      'varied-quantities-dimensional-astrology.trycloudflare.com',
+      
+      'localhost'
+    ]
   }
 })

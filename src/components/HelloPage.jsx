@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik"
+import userStore from "../stores/UserStore";
+import { useNavigate } from "react-router-dom";
 
 export const RegistrationContainer = styled.div`
 
@@ -39,38 +41,60 @@ const validScheme = Yup.object().shape({
 
 const HelloPage = () => {
 
-    const [username, setName] = useState("test")
-    
-    
+    const navigate = useNavigate();
+
     useEffect(() => {
-        console.log("Checking Telegram WebApp...");
-        console.log("window.Telegram:", window.Telegram);
-        console.log("window.Telegram.WebApp:", window.Telegram?.WebApp);
-    
-        if (window.Telegram && window.Telegram.WebApp) {
+        if (window.Telegram?.WebApp) {
             const tg = window.Telegram.WebApp;
-            console.log("Telegram WebApp is ready:", tg);
+            
+            tg.ready();
             tg.expand();
-            const user = tg.initDataUnsafe.user;
-            if (user) {
-                setName(user.id);
+
+            if (tg.initDataUnsafe?.user) {
+                const user = tg.initDataUnsafe.user;
+                axios.get("https://localhost:7062/user/getbyid", {
+                    params:
+                    {
+                        telegramId: user.id
+                    },
+                    headers: 
+                    {
+                        "Content-type": "application/json"
+                    }
+                })
+                .then((res) => {
+                    userStore.set(res.data)
+                    navigate("/profile")
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
             }
-        } else {
-            console.error("Telegram WebApp is not available");
+            else {
+                console.error('User data not available');
+            }
         }
-    }, []);
+        else {
+            console.error('Telegram WebApp not detected');
+        }
+
+    }, [])
+
 
     function AddUser(values)
     {
+        const user = window.Telegram.WebApp.initDataUnsafe.user;
+        console.log(user.id)
         axios.post("https://localhost:7062/user/add", 
             {
+                telegramId: String(user.id),
                 userName: values.username,
                 email: values.email,
                 password: values.password,
                 description: values.description,
                 aboutMe: values.aboutme,
                 group: values.group,
-                rating: values.rating,
+                courseNumber: values.courseNumber,
             },
             {
                 headers: {
@@ -78,7 +102,12 @@ const HelloPage = () => {
                 }
             }
         )
-        .then((res) => console.log(res.data))
+        .then((res) => 
+        {
+            userStore.set(res.data)
+            console.log(res.data)
+            navigate("/profile")
+        })
         .catch((err) => console.log(err))
     };
 
@@ -91,7 +120,7 @@ const HelloPage = () => {
             description: '',
             aboutme: '',
             group: '',
-            rating: '',
+            courseNumber: 0,
         },
         validationSchema: validScheme,
         onSubmit: (values) => {AddUser(values)}
@@ -99,8 +128,7 @@ const HelloPage = () => {
     return(
         <RegistrationContainer>
             <RegistrationContent>
-                <p>{username}</p>
-                {/* <Title>
+                <Title>
                     RegistrationForm
                 </Title>
                 <InputContainer>
@@ -147,16 +175,16 @@ const HelloPage = () => {
                         value={formik.values.group}
                         onChange={formik.handleChange}
                     />
-                    <InputText>Rating</InputText>
+                    <InputText>CourseNumber</InputText>
                     <Input 
-                        placeholder="rating"
-                        id="rating"
-                        value={formik.values.rating}
+                        placeholder="courseNumber"
+                        id="courseNumber"
+                        value={formik.values.courseNumber}
                         onChange={formik.handleChange}
                     />
                     <button type="submit">submit</button>
                 </form>
-                </InputContainer> */}
+                </InputContainer>
             </RegistrationContent>
         </RegistrationContainer>
     )

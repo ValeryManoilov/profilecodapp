@@ -4,26 +4,15 @@ import './index.css'
 import App from './App.jsx'
 
 
-import { init, miniApp } from '@telegram-apps/sdk';
 
-
-const initializeTelegramSDK = async () => {
-  try {
-    init();
-
-
-    if (miniApp.ready.isAvailable()) {
-      miniApp.ready();
-    }
-
-
-  } catch (error) {
-    console.error('Ошибка инициализации:', error);
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.Telegram?.WebApp) {
+    window.Telegram.WebApp.ready();
+    window.Telegram.WebApp.expand();
+  } else {
+    console.error('Telegram WebApp SDK not loaded');
   }
-};
-
-
-initializeTelegramSDK();
+});
 
 
 createRoot(document.getElementById('root')).render(
