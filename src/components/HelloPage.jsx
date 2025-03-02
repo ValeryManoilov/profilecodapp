@@ -133,6 +133,7 @@ const HelloPage = () => {
         })
         .then((res) => 
         {
+            console.log(res);
             navigate("/adminpanel")
         })
         .catch((err) => console.log(err));
