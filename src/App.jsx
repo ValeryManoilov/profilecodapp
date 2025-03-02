@@ -6,6 +6,7 @@ import HelloPage from './components/HelloPage'
 import { Routes, BrowserRouter, Route } from "react-router-dom"
 import ProfilePage from './components/ProfilePage'
 import { observer } from "mobx-react"
+import AdminPanel from './components/AdminPanel'
 
 const App = observer(() => {
   return (
@@ -13,6 +14,7 @@ const App = observer(() => {
       <Routes>
         <Route path="/" element={<HelloPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/adminpanel" element={<AdminPanel />} />
       </Routes>
     </BrowserRouter>
   )

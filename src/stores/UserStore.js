@@ -5,6 +5,7 @@ class UserStore
     user = {
         telegramId: "",
         username: "",
+        password: "",
         email: "",
         group: "",
         description: "",

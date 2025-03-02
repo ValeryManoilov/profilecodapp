@@ -28,8 +28,13 @@ export const InputText = styled.h2`
 
 export const Input = styled.input`
     
-`   
-const validScheme = Yup.object().shape({
+`
+
+export const AdminAuthorizeContainer = styled.div`
+`
+
+
+const validSchemeUser = Yup.object().shape({
     username: Yup.string().max(20, "Too large").min(4, "Too less"),
     email: Yup.string().max(20, "Too large").min(4, "Too less"),
     description: Yup.string().max(20, "Too large").min(4, "Too less"),
@@ -39,6 +44,8 @@ const validScheme = Yup.object().shape({
 })
 
 const HelloPage = () => {
+
+    const [telegramId, setId] = useState();
 
     const navigate = useNavigate();
 
@@ -51,6 +58,9 @@ const HelloPage = () => {
 
             if (tg.initDataUnsafe?.user) {
                 const user = tg.initDataUnsafe.user;
+
+                setId(user.id)
+
                 axios.get("https://localhost:7062/user/getbyid", {
                     params:
                     {
@@ -63,7 +73,10 @@ const HelloPage = () => {
                 })
                 .then((res) => {
                     userStore.set(res.data)
-                    navigate("/profile")
+                    if (user.id != 1166829801)
+                    {
+                        navigate("/profile")
+                    }
                 })
                 .catch((err) => {
                     console.log(err)
@@ -110,8 +123,16 @@ const HelloPage = () => {
         .catch((err) => console.log(err))
     };
 
+    function AdminAuth(values)
+    {
+        if (values.username == userStore.user.username && values.password == userStore.user.password)
+        {
+            navigate("/adminpanel");
+        }
+    }
 
-    const formik = useFormik({
+
+    const formikUser = useFormik({
         initialValues: {
             username: '',
             password: '',
@@ -121,71 +142,104 @@ const HelloPage = () => {
             group: '',
             courseNumber: 0,
         },
-        validationSchema: validScheme,
+        validationSchema: validSchemeUser,
         onSubmit: (values) => {AddUser(values)}
     })
+
+    const formikAdmin = useFormik({
+        initialValues: {
+            username: '',
+            password: '',
+        },
+        onSubmit: (values) => {AdminAuth(values)}
+    })
     return(
-        <RegistrationContainer>
-            <RegistrationContent>
-                <Title>
-                    RegistrationForm
-                </Title>
-                <InputContainer>
-                <form onSubmit={formik.handleSubmit}>
-                    <InputText>Name</InputText>
-                    <Input 
-                        placeholder="name"
-                        id="username"
-                        value={formik.values.username}
-                        onChange={formik.handleChange}
-                    />
-                    <InputText>Password</InputText>
-                    <Input 
-                        placeholder="password"
-                        id="password"
-                        value={formik.values.password}
-                        onChange={formik.handleChange}
-                    />
-                    <InputText>Email</InputText>
-                    <Input 
-                        placeholder="email"
-                        id="email"
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                    />
-                    <InputText>Description</InputText>
-                    <Input 
-                        placeholder="description"
-                        id="description"
-                        value={formik.values.description}
-                        onChange={formik.handleChange}
-                    />
-                    <InputText>AboutMe</InputText>
-                    <Input 
-                        placeholder="about me"
-                        id="aboutme"
-                        value={formik.values.aboutme}
-                        onChange={formik.handleChange}
-                    />
-                    <InputText>Group</InputText>
-                    <Input 
-                        placeholder="group"
-                        id="group"
-                        value={formik.values.group}
-                        onChange={formik.handleChange}
-                    />
-                    <InputText>CourseNumber</InputText>
-                    <Input 
-                        placeholder="courseNumber"
-                        id="courseNumber"
-                        value={formik.values.courseNumber}
-                        onChange={formik.handleChange}
-                    />
-                    <button type="submit">submit</button>
-                </form>
-                </InputContainer>
-            </RegistrationContent>
-        </RegistrationContainer>
+        <>
+            {
+                telegramId == 1166829801 
+                ?
+                <AdminAuthorizeContainer>
+                    <form onSubmit={formikAdmin.handleSubmit}>
+                        <Text>Username</Text>
+                        <Input 
+                            placeholder="username"
+                            id="username"
+                            value={formikAdmin.values.username}
+                            onChange={formikAdmin.handleChange}/>
+                        <Text>Password</Text>
+                        <Input 
+                            placeholder="password"
+                            id="password"
+                            value={formikAdmin.values.password}
+                            onChange={formikAdmin.handleChange}
+                        />
+                        <button type="submit">auth</button>
+                    </form>
+                </AdminAuthorizeContainer> 
+                :
+                <RegistrationContainer>
+                    <RegistrationContent>
+                        <Title>
+                            RegistrationForm
+                        </Title>
+                        <InputContainer>
+                            <form onSubmit={formikUser.handleSubmit}>
+                                <InputText>Name</InputText>
+                                <Input 
+                                    placeholder="name"
+                                    id="username"
+                                    value={formikUser.values.username}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>Password</InputText>
+                                <Input 
+                                    placeholder="password"
+                                    id="password"
+                                    value={formikUser.values.password}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>Email</InputText>
+                                <Input 
+                                    placeholder="email"
+                                    id="email"
+                                    value={formikUser.values.email}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>Description</InputText>
+                                <Input 
+                                    placeholder="description"
+                                    id="description"
+                                    value={formikUser.values.description}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>AboutMe</InputText>
+                                <Input 
+                                    placeholder="about me"
+                                    id="aboutme"
+                                    value={formikUser.values.aboutme}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>Group</InputText>
+                                <Input 
+                                    placeholder="group"
+                                    id="group"
+                                    value={formikUser.values.group}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>CourseNumber</InputText>
+                                <Input 
+                                    placeholder="courseNumber"
+                                    id="courseNumber"
+                                    value={formikUser.values.courseNumber}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <button type="submit">submit</button>
+                            </form>
+                        </InputContainer>
+                    </RegistrationContent>
+                </RegistrationContainer>
+            }
+        </>
     )
 }
 
