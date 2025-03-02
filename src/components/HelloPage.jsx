@@ -129,7 +129,7 @@ const HelloPage = () => {
     {
         axios.post("https://localhost:7062/user/adminauth", {
             userName: values.username,
-            password: username.password 
+            password: values.password 
         })
         .then((res) => 
         {
