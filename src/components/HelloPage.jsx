@@ -158,17 +158,17 @@ const HelloPage = () => {
     return(
         <>
             {
-                telegramId == 1166829801 
+                telegramId == 1166829801
                 ?
                 <AdminAuthorizeContainer>
                     <form onSubmit={formikAdmin.handleSubmit}>
-                        <Text>Username</Text>
+                        <InputText>Username</InputText>
                         <Input 
                             placeholder="username"
                             id="username"
                             value={formikAdmin.values.username}
                             onChange={formikAdmin.handleChange}/>
-                        <Text>Password</Text>
+                        <InputText>Password</InputText>
                         <Input 
                             placeholder="password"
                             id="password"
