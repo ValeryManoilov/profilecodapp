@@ -56,10 +56,12 @@ const HelloPage = () => {
             tg.ready();
             tg.expand();
 
+
             if (tg.initDataUnsafe?.user) {
                 const user = tg.initDataUnsafe.user;
 
                 setId(user.id)
+                console.log(user.id)
 
                 axios.get("https://localhost:7062/user/getbyid", {
                     params:
