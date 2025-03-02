@@ -127,10 +127,15 @@ const HelloPage = () => {
 
     function AdminAuth(values)
     {
-        if (values.username == userStore.user.username && values.password == userStore.user.password)
+        axios.post("https://localhost:7062/user/adminauth", {
+            userName: values.username,
+            password: username.password 
+        })
+        .then((res) => 
         {
-            navigate("/adminpanel");
-        }
+            navigate("/adminpanel")
+        })
+        .catch((err) => console.log(err));
     }
 
 
