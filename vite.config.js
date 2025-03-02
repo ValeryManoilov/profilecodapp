@@ -10,8 +10,6 @@ export default defineConfig({
   },
   server: {
     allowedHosts: [
-      'varied-quantities-dimensional-astrology.trycloudflare.com',
-      
       'localhost'
     ]
   }

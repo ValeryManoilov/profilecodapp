@@ -31,7 +31,6 @@ export const Input = styled.input`
 `   
 const validScheme = Yup.object().shape({
     username: Yup.string().max(20, "Too large").min(4, "Too less"),
-    password: Yup.string().max(20, "Too large").min(4, "Too less"),
     email: Yup.string().max(20, "Too large").min(4, "Too less"),
     description: Yup.string().max(20, "Too large").min(4, "Too less"),
     aboutme: Yup.string().max(20, "Too large").min(4, "Too less"),
