@@ -1,4 +1,5 @@
 import userStore from "../stores/UserStore"
+import { useEffect } from "react";
 
 function ProfilePage()
 {
@@ -38,7 +39,7 @@ function ProfilePage()
         }
 
     }, [])
-    
+
     const user = userStore.get();
 
     console.log(user)
