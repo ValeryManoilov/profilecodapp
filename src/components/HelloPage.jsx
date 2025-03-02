@@ -130,7 +130,14 @@ const HelloPage = () => {
         axios.post("https://localhost:7062/user/adminauth", {
             userName: values.username,
             password: values.password 
-        })
+        },
+        {
+            headers:
+            {
+                "Content-Type": "application/json"
+            }
+        }
+    )
         .then((res) => 
         {
             console.log(res);
