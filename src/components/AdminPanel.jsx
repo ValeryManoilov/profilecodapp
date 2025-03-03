@@ -57,9 +57,10 @@ function AdminPanel()
                 "Content-Type":"application/json"
             }
         })
+        .then((res) => console.log(res))
     }
 
-    function ApproveApp()
+    function ApproveApp(telegramId)
     {
         axios.post("https://localhost:7062/admin/approveapp", {
             telegramId: String(telegramId)
@@ -70,6 +71,7 @@ function AdminPanel()
                 "Content-Type":"application/json"
             }
         })
+        .then((res) => console.log(res))
     }
 
     return(
