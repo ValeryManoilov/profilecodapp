@@ -66,16 +66,12 @@ const HelloPage = () => {
                     console.log(user.id)
                     
                     var response = await axios.get("https://localhost:7062/user/isadmin", {
-                        params:
-                        { telegramId: String(user.id) }})
+                        params: { telegramId: String(user.id) }
+                    })
 
-                    const isAdminResult = response.data;
-                    setIsAdmin(isAdminResult);
-
-                    console.log(response.data)
-
-    
-                    if (!isAdmin)
+                    setIsAdmin(response.data)
+                    
+                    if (!response.data)
                     {
                         console.log(isAdmin)
                         await axios.get("https://localhost:7062/user/getbyid", {
