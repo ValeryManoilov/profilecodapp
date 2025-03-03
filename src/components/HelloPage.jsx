@@ -76,6 +76,7 @@ const HelloPage = () => {
                         }
                     })
                     .then((res) => {
+                        console.log(res)
                         setIsAdmin(res.data)
                     })
     
@@ -84,7 +85,7 @@ const HelloPage = () => {
                         await axios.get("https://localhost:7062/user/getbyid", {
                             params:
                             {
-                                telegramId: user.id
+                                telegramId: String(user.id)
                             },
                             headers: 
                             {
