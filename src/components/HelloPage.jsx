@@ -73,7 +73,6 @@ const HelloPage = () => {
 
                     if (!response.data)
                     {
-                        console.log(isAdmin)
                         await axios.get("https://localhost:7062/user/getbyid", {
                             params:
                             {
