@@ -44,240 +44,237 @@ const validSchemeUser = Yup.object().shape({
 })
 
 const HelloPage = () => {
-    return(
-        <p>Hello World</p>
-    )
-    // const [telegramId, setId] = useState();
-    // const [isAdmin, setIsAdmin] = useState(false)
+    const [telegramId, setId] = useState();
+    const [isAdmin, setIsAdmin] = useState(false)
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (window.Telegram?.WebApp) {
-    //             const tg = window.Telegram.WebApp;
+    useEffect(() => {
+        const fetchData = async () => {
+            if (window.Telegram?.WebApp) {
+                const tg = window.Telegram.WebApp;
                 
-    //             tg.ready();
-    //             tg.expand();
+                tg.ready();
+                tg.expand();
     
     
-    //             if (tg.initDataUnsafe?.user) {
-    //                 const user = tg.initDataUnsafe.user;
+                if (tg.initDataUnsafe?.user) {
+                    const user = tg.initDataUnsafe.user;
     
-    //                 setId(user.id)
-    //                 console.log(user.id)
+                    setId(user.id)
+                    console.log(user.id)
                     
-    //                 await axios.get("https://localhost:7062/user/isadmin", {
-    //                     params:
-    //                     {
-    //                         telegramId: user.id
-    //                     },
-    //                     headers: 
-    //                     {
-    //                         "Content-type": "application/json"
-    //                     }
-    //                 })
-    //                 .then((res) => {
-    //                     setIsAdmin(res.data)
-    //                 })
+                    await axios.get("https://localhost:7062/user/isadmin", {
+                        params:
+                        {
+                            telegramId: user.id
+                        },
+                        headers: 
+                        {
+                            "Content-type": "application/json"
+                        }
+                    })
+                    .then((res) => {
+                        setIsAdmin(res.data)
+                    })
     
-    //                 if (!isAdmin)
-    //                 {
-    //                     await axios.get("https://localhost:7062/user/getbyid", {
-    //                         params:
-    //                         {
-    //                             telegramId: user.id
-    //                         },
-    //                         headers: 
-    //                         {
-    //                             "Content-type": "application/json"
-    //                         }
-    //                     })
-    //                     .then((res) => {
-    //                         userStore.set(res.data)
-    //                         navigate("/profile")
-    //                     })
-    //                     .catch((err) => {
-    //                         console.log(err)
-    //                     })
-    //                 }
-    //             }
-    //             else {
-    //                 console.error('User data not available');
-    //             }
-    //         }
-    //         else {
-    //             console.error('Telegram WebApp not detected');
-    //         }
-    //     }
+                    if (!isAdmin)
+                    {
+                        await axios.get("https://localhost:7062/user/getbyid", {
+                            params:
+                            {
+                                telegramId: user.id
+                            },
+                            headers: 
+                            {
+                                "Content-type": "application/json"
+                            }
+                        })
+                        .then((res) => {
+                            userStore.set(res.data)
+                            navigate("/profile")
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                    }
+                }
+                else {
+                    console.error('User data not available');
+                }
+            }
+            else {
+                console.error('Telegram WebApp not detected');
+            }
+        }
 
-    //     fetchData()
-    // }, [])
-
-
-    // function AddUser(values)
-    // {
-    //     const user = window.Telegram.WebApp.initDataUnsafe.user;
-    //     console.log(user.id)
-    //     axios.post("https://localhost:7062/user/sendapp", 
-    //         {
-    //             telegramId: String(user.id),
-    //             userName: values.username,
-    //             email: values.email,
-    //             password: values.password,
-    //             description: values.description,
-    //             aboutMe: values.aboutme,
-    //             group: values.group,
-    //             courseNumber: values.courseNumber,
-    //         },
-    //         {
-    //             headers: {
-    //                 "Content-Type":"application/json"
-    //             }
-    //         }
-    //     )
-    //     .then((res) => 
-    //     {
-    //         userStore.set(res.data)
-    //         console.log(res.data)
-    //         navigate("/profile")
-    //     })
-    //     .catch((err) => console.log(err))
-    // };
+        fetchData()
+    }, [])
 
 
-    // function AdminAuth(values)
-    // {
-    //     axios.post("https://localhost:7062/user/adminauth", {
-    //         userName: values.username,
-    //         password: values.password 
-    //     },
-    //     {
-    //         headers:
-    //         {
-    //             "Content-Type": "application/json"
-    //         }
-    //     }
-    // )
-    //     .then((res) => 
-    //     {
-    //         console.log(res);
-    //         navigate("/adminpanel")
-    //     })
-    //     .catch((err) => console.log(err));
-    // }
+    function AddUser(values)
+    {
+        const user = window.Telegram.WebApp.initDataUnsafe.user;
+        console.log(user.id)
+        axios.post("https://localhost:7062/user/sendapp", 
+            {
+                telegramId: String(user.id),
+                userName: values.username,
+                email: values.email,
+                password: values.password,
+                description: values.description,
+                aboutMe: values.aboutme,
+                group: values.group,
+                courseNumber: values.courseNumber,
+            },
+            {
+                headers: {
+                    "Content-Type":"application/json"
+                }
+            }
+        )
+        .then((res) => 
+        {
+            userStore.set(res.data)
+            console.log(res.data)
+            navigate("/profile")
+        })
+        .catch((err) => console.log(err))
+    };
 
 
-    // const formikUser = useFormik({
-    //     initialValues: {
-    //         username: '',
-    //         password: '',
-    //         email: '',
-    //         description: '',
-    //         aboutme: '',
-    //         group: '',
-    //         courseNumber: 0,
-    //     },
-    //     validationSchema: validSchemeUser,
-    //     onSubmit: (values) => {AddUser(values)}
-    // })
+    function AdminAuth(values)
+    {
+        axios.post("https://localhost:7062/user/adminauth", {
+            userName: values.username,
+            password: values.password 
+        },
+        {
+            headers:
+            {
+                "Content-Type": "application/json"
+            }
+        }
+    )
+        .then((res) => 
+        {
+            console.log(res);
+            navigate("/adminpanel")
+        })
+        .catch((err) => console.log(err));
+    }
 
-    // const formikAdmin = useFormik({
-    //     initialValues: {
-    //         username: '',
-    //         password: '',
-    //     },
-    //     onSubmit: (values) => {AdminAuth(values)}
-    // })
 
-    // return(
-    //     <>
-    //         {
-    //             isAdmin
-    //             ?
-    //             <AdminAuthorizeContainer>
-    //                 <form onSubmit={formikAdmin.handleSubmit}>
-    //                     <InputText>Username</InputText>
-    //                     <Input 
-    //                         placeholder="username"
-    //                         id="username"
-    //                         value={formikAdmin.values.username}
-    //                         onChange={formikAdmin.handleChange}/>
-    //                     <InputText>Password</InputText>
-    //                     <Input 
-    //                         placeholder="password"
-    //                         id="password"
-    //                         value={formikAdmin.values.password}
-    //                         onChange={formikAdmin.handleChange}
-    //                     />
-    //                     <button type="submit">auth</button>
-    //                 </form>
-    //             </AdminAuthorizeContainer> 
-    //             :
-    //             <RegistrationContainer>
-    //                 <RegistrationContent>
-    //                     <Title>
-    //                         Application Form
-    //                     </Title>
-    //                     <InputContainer>
-    //                         <form onSubmit={formikUser.handleSubmit}>
-    //                             <InputText>Name</InputText>
-    //                             <Input 
-    //                                 placeholder="name"
-    //                                 id="username"
-    //                                 value={formikUser.values.username}
-    //                                 onChange={formikUser.handleChange}
-    //                             />
-    //                             <InputText>Password</InputText>
-    //                             <Input 
-    //                                 placeholder="password"
-    //                                 id="password"
-    //                                 value={formikUser.values.password}
-    //                                 onChange={formikUser.handleChange}
-    //                             />
-    //                             <InputText>Email</InputText>
-    //                             <Input 
-    //                                 placeholder="email"
-    //                                 id="email"
-    //                                 value={formikUser.values.email}
-    //                                 onChange={formikUser.handleChange}
-    //                             />
-    //                             <InputText>Description</InputText>
-    //                             <Input 
-    //                                 placeholder="description"
-    //                                 id="description"
-    //                                 value={formikUser.values.description}
-    //                                 onChange={formikUser.handleChange}
-    //                             />
-    //                             <InputText>AboutMe</InputText>
-    //                             <Input 
-    //                                 placeholder="about me"
-    //                                 id="aboutme"
-    //                                 value={formikUser.values.aboutme}
-    //                                 onChange={formikUser.handleChange}
-    //                             />
-    //                             <InputText>Group</InputText>
-    //                             <Input 
-    //                                 placeholder="group"
-    //                                 id="group"
-    //                                 value={formikUser.values.group}
-    //                                 onChange={formikUser.handleChange}
-    //                             />
-    //                             <InputText>CourseNumber</InputText>
-    //                             <Input 
-    //                                 placeholder="courseNumber"
-    //                                 id="courseNumber"
-    //                                 value={formikUser.values.courseNumber}
-    //                                 onChange={formikUser.handleChange}
-    //                             />
-    //                             <button type="submit">submit</button>
-    //                         </form>
-    //                     </InputContainer>
-    //                 </RegistrationContent>
-    //             </RegistrationContainer>
-    //         }
-    //     </>
-    // )
+    const formikUser = useFormik({
+        initialValues: {
+            username: '',
+            password: '',
+            email: '',
+            description: '',
+            aboutme: '',
+            group: '',
+            courseNumber: 0,
+        },
+        validationSchema: validSchemeUser,
+        onSubmit: (values) => {AddUser(values)}
+    })
+
+    const formikAdmin = useFormik({
+        initialValues: {
+            username: '',
+            password: '',
+        },
+        onSubmit: (values) => {AdminAuth(values)}
+    })
+
+    return(
+        <>
+            {
+                isAdmin
+                ?
+                <AdminAuthorizeContainer>
+                    <form onSubmit={formikAdmin.handleSubmit}>
+                        <InputText>Username</InputText>
+                        <Input 
+                            placeholder="username"
+                            id="username"
+                            value={formikAdmin.values.username}
+                            onChange={formikAdmin.handleChange}/>
+                        <InputText>Password</InputText>
+                        <Input 
+                            placeholder="password"
+                            id="password"
+                            value={formikAdmin.values.password}
+                            onChange={formikAdmin.handleChange}
+                        />
+                        <button type="submit">auth</button>
+                    </form>
+                </AdminAuthorizeContainer> 
+                :
+                <RegistrationContainer>
+                    <RegistrationContent>
+                        <Title>
+                            Application Form
+                        </Title>
+                        <InputContainer>
+                            <form onSubmit={formikUser.handleSubmit}>
+                                <InputText>Name</InputText>
+                                <Input 
+                                    placeholder="name"
+                                    id="username"
+                                    value={formikUser.values.username}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>Password</InputText>
+                                <Input 
+                                    placeholder="password"
+                                    id="password"
+                                    value={formikUser.values.password}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>Email</InputText>
+                                <Input 
+                                    placeholder="email"
+                                    id="email"
+                                    value={formikUser.values.email}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>Description</InputText>
+                                <Input 
+                                    placeholder="description"
+                                    id="description"
+                                    value={formikUser.values.description}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>AboutMe</InputText>
+                                <Input 
+                                    placeholder="about me"
+                                    id="aboutme"
+                                    value={formikUser.values.aboutme}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>Group</InputText>
+                                <Input 
+                                    placeholder="group"
+                                    id="group"
+                                    value={formikUser.values.group}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <InputText>CourseNumber</InputText>
+                                <Input 
+                                    placeholder="courseNumber"
+                                    id="courseNumber"
+                                    value={formikUser.values.courseNumber}
+                                    onChange={formikUser.handleChange}
+                                />
+                                <button type="submit">submit</button>
+                            </form>
+                        </InputContainer>
+                    </RegistrationContent>
+                </RegistrationContainer>
+            }
+        </>
+    )
 }
 
 export default HelloPage;
