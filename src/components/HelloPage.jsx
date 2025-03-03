@@ -44,7 +44,7 @@ const validSchemeUser = Yup.object().shape({
 })
 
 const HelloPage = () => {
-    
+
     const [telegramId, setId] = useState();
     const [isAdmin, setIsAdmin] = useState(false)
 
@@ -68,7 +68,7 @@ const HelloPage = () => {
                     await axios.get("https://localhost:7062/user/isadmin", {
                         params:
                         {
-                            telegramId: user.id
+                            telegramId: String(user.id)
                         },
                         headers: 
                         {

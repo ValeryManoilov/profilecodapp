@@ -12,7 +12,7 @@ const App = observer(() => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HelloPage />} />
-        <Route path="/profile" element={<Main />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/adminpanel" element={<AdminPanel />} />
       </Routes>
     </BrowserRouter>
