@@ -1,10 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function AdminPanel()
 {
     const [users, setUsers] = useState([]);
-    
+
     useEffect(() => {
         axios.get("https://localhost:7062/admin/getall")
         .then((res) => {
