@@ -40,6 +40,7 @@ function AdminPanel()
     useEffect(() => {
         axios.get("https://localhost:7062/admin/getwaitapp")
         .then((res) => {
+            console.log(res.data)
             setUsers(res.data)
         })
         .catch((err) => console.log(err))
