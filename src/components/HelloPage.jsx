@@ -129,7 +129,6 @@ const HelloPage = () => {
         .then((res) => 
         {
             userStore.set(res.data)
-            console.log(res.data)
             navigate("/profile")
         })
         .catch((err) => console.log(err))
