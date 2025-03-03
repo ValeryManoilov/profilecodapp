@@ -68,7 +68,7 @@ const HelloPage = () => {
                     await axios.get("https://localhost:7062/user/isadmin", {
                         params:
                         {
-                            telegramId: String(user.id)
+                            telegramId: String(1166829801)
                         },
                         headers: 
                         {
