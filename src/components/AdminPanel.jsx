@@ -43,7 +43,7 @@ function AdminPanel()
             setUsers(res.data)
         })
         .catch((err) => console.log(err))
-    }, [RejectApp, ApproveApp]);
+    }, []);
 
     function RejectApp(telegramId)
     {
