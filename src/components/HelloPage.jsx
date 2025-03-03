@@ -50,23 +50,6 @@ const HelloPage = () => {
 
     const navigate = useNavigate();
 
-    // function isAdminFunc(telegramId)
-    // {
-    //     axios.get("https://localhost:7062/user/isadmin", {
-    //         params:
-    //         {
-    //             telegramId: user.id
-    //         },
-    //         headers: 
-    //         {
-    //             "Content-type": "application/json"
-    //         }
-    //     })
-    //     .then((res) => {
-    //         setIsAdmin(res.data)
-    //     })
-    // }
-
     useEffect(() => {
         const fetchData = async () => {
             if (window.Telegram?.WebApp) {
@@ -85,7 +68,7 @@ const HelloPage = () => {
                     await axios.get("https://localhost:7062/user/isadmin", {
                         params:
                         {
-                            telegramId: telegramId
+                            telegramId: user.id
                         },
                         headers: 
                         {
@@ -101,7 +84,7 @@ const HelloPage = () => {
                         await axios.get("https://localhost:7062/user/getbyid", {
                             params:
                             {
-                                telegramId: telegramId
+                                telegramId: user.id
                             },
                             headers: 
                             {
