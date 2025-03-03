@@ -26,6 +26,12 @@ export const ApproveButton = styled(Button)`
 export const RejectButton = styled(Button)`
 `
 
+export const Title = styled.h1`
+`
+
+export const ApplicationTitle = styled.h2`
+`
+
 
 function AdminPanel()
 {
@@ -68,6 +74,12 @@ function AdminPanel()
 
     return(
         <AdminPanelContainer>
+            <Title>
+                Панель администратора
+            </Title>
+            <ApplicationTitle>
+                Заявки на добавление
+            </ApplicationTitle>
             {
                 users.map((el) => (
                     <ApplicationContainer id={el.telegramId}>

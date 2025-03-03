@@ -70,7 +70,7 @@ const HelloPage = () => {
                     })
 
                     setIsAdmin(response.data)
-                    
+
                     if (!response.data)
                     {
                         console.log(isAdmin)
@@ -119,7 +119,7 @@ const HelloPage = () => {
                 description: values.description,
                 aboutMe: values.aboutme,
                 group: values.group,
-                courseNumber: values.courseNumber,
+                course: values.course,
             },
             {
                 headers: {
@@ -167,7 +167,7 @@ const HelloPage = () => {
             description: '',
             aboutme: '',
             group: '',
-            courseNumber: 0,
+            course: '',
         },
         validationSchema: validSchemeUser,
         onSubmit: (values) => {AddUser(values)}
@@ -254,11 +254,11 @@ const HelloPage = () => {
                                     value={formikUser.values.group}
                                     onChange={formikUser.handleChange}
                                 />
-                                <InputText>CourseNumber</InputText>
+                                <InputText>Course</InputText>
                                 <Input 
-                                    placeholder="courseNumber"
-                                    id="courseNumber"
-                                    value={formikUser.values.courseNumber}
+                                    placeholder="course"
+                                    id="course"
+                                    value={formikUser.values.course}
                                     onChange={formikUser.handleChange}
                                 />
                                 <button type="submit">submit</button>
