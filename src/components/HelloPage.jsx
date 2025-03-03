@@ -68,64 +68,65 @@ const HelloPage = () => {
     // }
 
     useEffect(() => {
-        
-        if (window.Telegram?.WebApp) {
-            const tg = window.Telegram.WebApp;
-            
-            tg.ready();
-            tg.expand();
-
-
-            if (tg.initDataUnsafe?.user) {
-                const user = tg.initDataUnsafe.user;
-
-                setId(user.id)
-                console.log(user.id)
+        const fetchData = async () => {
+            if (window.Telegram?.WebApp) {
+                const tg = window.Telegram.WebApp;
                 
-                axios.get("https://localhost:7062/user/isadmin", {
-                    params:
-                    {
-                        telegramId: telegramId
-                    },
-                    headers: 
-                    {
-                        "Content-type": "application/json"
-                    }
-                })
-                .then((res) => {
-                    setIsAdmin(res.data)
-                })
-
-
-                axios.get("https://localhost:7062/user/getbyid", {
-                    params:
-                    {
-                        telegramId: telegramId
-                    },
-                    headers: 
-                    {
-                        "Content-type": "application/json"
-                    }
-                })
-                .then((res) => {
+                tg.ready();
+                tg.expand();
+    
+    
+                if (tg.initDataUnsafe?.user) {
+                    const user = tg.initDataUnsafe.user;
+    
+                    setId(user.id)
+                    console.log(user.id)
+                    
+                    await axios.get("https://localhost:7062/user/isadmin", {
+                        params:
+                        {
+                            telegramId: telegramId
+                        },
+                        headers: 
+                        {
+                            "Content-type": "application/json"
+                        }
+                    })
+                    .then((res) => {
+                        setIsAdmin(res.data)
+                    })
+    
                     if (!isAdmin)
                     {
-                        userStore.set(res.data)
-                        navigate("/profile")
+                        await axios.get("https://localhost:7062/user/getbyid", {
+                            params:
+                            {
+                                telegramId: telegramId
+                            },
+                            headers: 
+                            {
+                                "Content-type": "application/json"
+                            }
+                        })
+                        .then((res) => {
+                            userStore.set(res.data)
+                            navigate("/profile")
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
                     }
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
+                }
+                else {
+                    console.error('User data not available');
+                }
             }
             else {
-                console.error('User data not available');
+                console.error('Telegram WebApp not detected');
             }
         }
-        else {
-            console.error('Telegram WebApp not detected');
-        }
 
+        fetchData()
     }, [])
 
 
