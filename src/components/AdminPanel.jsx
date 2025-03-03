@@ -44,7 +44,7 @@ function AdminPanel()
             setUsers(res.data)
         })
         .catch((err) => console.log(err))
-    }, []);
+    }, [RejectApp, ApproveApp]);
 
     function RejectApp(telegramId)
     {
@@ -83,7 +83,7 @@ function AdminPanel()
             {
                 users.map((el) => (
                     <ApplicationContainer id={el.telegramId}>
-                        {el.username}
+                        {el.userName}
                         <ApproveButton onClick={() => ApproveApp(el.telegramId)}/>
                         <RejectButton onClick={() => RejectApp(el.telegramId)}/>
                     </ApplicationContainer>
