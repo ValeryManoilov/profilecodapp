@@ -12,8 +12,8 @@ const App = observer(() => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HelloPage />} />
-        {/* <Route path="/profile" element={<Main />} /> */}
-        {/* <Route path="/adminpanel" element={<AdminPanel />} /> */}
+        <Route path="/profile" element={<Main />} />
+        <Route path="/adminpanel" element={<AdminPanel />} />
       </Routes>
     </BrowserRouter>
   )
