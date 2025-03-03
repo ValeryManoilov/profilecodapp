@@ -46,10 +46,29 @@ const validSchemeUser = Yup.object().shape({
 const HelloPage = () => {
 
     const [telegramId, setId] = useState();
+    const [isAdmin, setIsAdmin] = useState(false)
 
     const navigate = useNavigate();
 
+    // function isAdminFunc(telegramId)
+    // {
+    //     axios.get("https://localhost:7062/user/isadmin", {
+    //         params:
+    //         {
+    //             telegramId: user.id
+    //         },
+    //         headers: 
+    //         {
+    //             "Content-type": "application/json"
+    //         }
+    //     })
+    //     .then((res) => {
+    //         setIsAdmin(res.data)
+    //     })
+    // }
+
     useEffect(() => {
+        
         if (window.Telegram?.WebApp) {
             const tg = window.Telegram.WebApp;
             
@@ -62,11 +81,11 @@ const HelloPage = () => {
 
                 setId(user.id)
                 console.log(user.id)
-
-                axios.get("https://localhost:7062/user/getbyid", {
+                
+                axios.get("https://localhost:7062/user/isadmin", {
                     params:
                     {
-                        telegramId: user.id
+                        telegramId: telegramId
                     },
                     headers: 
                     {
@@ -74,9 +93,24 @@ const HelloPage = () => {
                     }
                 })
                 .then((res) => {
-                    userStore.set(res.data)
-                    if (user.id != 1166829801)
+                    setIsAdmin(res.data)
+                })
+
+
+                axios.get("https://localhost:7062/user/getbyid", {
+                    params:
                     {
+                        telegramId: telegramId
+                    },
+                    headers: 
+                    {
+                        "Content-type": "application/json"
+                    }
+                })
+                .then((res) => {
+                    if (!isAdmin)
+                    {
+                        userStore.set(res.data)
                         navigate("/profile")
                     }
                 })
@@ -99,7 +133,7 @@ const HelloPage = () => {
     {
         const user = window.Telegram.WebApp.initDataUnsafe.user;
         console.log(user.id)
-        axios.post("https://localhost:7062/user/add", 
+        axios.post("https://localhost:7062/user/sendapp", 
             {
                 telegramId: String(user.id),
                 userName: values.username,
@@ -124,6 +158,7 @@ const HelloPage = () => {
         })
         .catch((err) => console.log(err))
     };
+
 
     function AdminAuth(values)
     {
@@ -168,10 +203,11 @@ const HelloPage = () => {
         },
         onSubmit: (values) => {AdminAuth(values)}
     })
+
     return(
         <>
             {
-                telegramId == 1166829801
+                isAdmin
                 ?
                 <AdminAuthorizeContainer>
                     <form onSubmit={formikAdmin.handleSubmit}>
@@ -195,7 +231,7 @@ const HelloPage = () => {
                 <RegistrationContainer>
                     <RegistrationContent>
                         <Title>
-                            RegistrationForm
+                            Application Form
                         </Title>
                         <InputContainer>
                             <form onSubmit={formikUser.handleSubmit}>

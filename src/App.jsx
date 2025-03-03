@@ -7,13 +7,14 @@ import { Routes, BrowserRouter, Route } from "react-router-dom"
 import ProfilePage from './components/ProfilePage'
 import { observer } from "mobx-react"
 import AdminPanel from './components/AdminPanel'
+import Main from './MainComponents/Main'
 
 const App = observer(() => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HelloPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile" element={<Main />} />
         <Route path="/adminpanel" element={<AdminPanel />} />
       </Routes>
     </BrowserRouter>
