@@ -92,8 +92,11 @@ const HelloPage = () => {
                                     navigate("/rejectapp");
                                     break;
                                 case("Approve"):
-                                    userStore.set(res.data)
-                                    navigate("/profile")
+                                    userStore.set(res.data);
+                                    navigate("/profile");
+                                    break;
+                                default:
+                                    break;
                             }
                         })
                         .catch((err) => {
