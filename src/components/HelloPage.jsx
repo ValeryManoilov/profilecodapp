@@ -193,7 +193,7 @@ const HelloPage = () => {
 
     return(
         <>
-            {/* {
+            {
                 isAdmin
                 ?
                 <AdminAuthorizeContainer>
@@ -276,7 +276,7 @@ const HelloPage = () => {
                         </InputContainer>
                     </RegistrationContent>
                 </RegistrationContainer>
-            } */}
+            }
         </>
     )
 }
