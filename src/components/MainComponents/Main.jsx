@@ -2,7 +2,7 @@ import Description from "./Description"
 import Footer from "./Footer"
 import Info from "./Info"
 import MainContainer from "./MainContainer"
-import "./css/main.css"
+import "./main.css"
 
 
 const Main= () => {
