@@ -66,7 +66,7 @@ const HelloPage = () => {
                     console.log(user.id)
                     
                     var response = await axios.get("https://localhost:7062/user/isadmin", {
-                        params: { telegramId: String(user.id) }
+                        params: { telegramId: user.id }
                     })
 
                     setIsAdmin(response.data)
@@ -76,7 +76,7 @@ const HelloPage = () => {
                         await axios.get("https://localhost:7062/user/getbyid", {
                             params:
                             {
-                                telegramId: String(user.id)
+                                telegramId: user.id
                             },
                             headers: 
                             {
@@ -111,7 +111,7 @@ const HelloPage = () => {
         console.log(user.id)
         axios.post("https://localhost:7062/user/sendapp", 
             {
-                telegramId: String(user.id),
+                telegramId: user.id,
                 userName: values.username,
                 email: values.email,
                 password: values.password,

@@ -50,7 +50,7 @@ function AdminPanel()
     {
         console.log(telegramId)
         axios.post("https://localhost:7062/admin/rejectapp", {
-            telegramId: String(telegramId)
+            telegramId: telegramId
         },
         {
             headers:
@@ -65,7 +65,7 @@ function AdminPanel()
     {
         console.log(telegramId)
         axios.post("https://localhost:7062/admin/approveapp", {
-            telegramId: String(telegramId)
+            telegramId: telegramId
         },
         {
             headers:
