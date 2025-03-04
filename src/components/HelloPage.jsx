@@ -118,14 +118,14 @@ const HelloPage = () => {
 
         axios.post("https://localhost:7062/user/sendapp", 
             {
-                telegramId: telegramId,
                 userName: values.username,
                 email: values.email,
                 password: values.password,
-                description: values.description,
-                aboutMe: values.aboutme,
-                group: values.group,
                 course: values.course,
+                group: values.group,
+                telegramId: telegramId,
+                aboutMe: values.aboutme,
+                description: values.description,
             },
             {
                 headers: {
