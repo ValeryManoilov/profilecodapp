@@ -72,7 +72,7 @@ const HelloPage = () => {
 
                     if (!response.data)
                     {
-                        await axios.get("https://localhost:7062/user/getbyid", {
+                        await axios.get("https://localhost:7062/user/getappbyid", {
                             params:
                             {
                                 telegramId: user.id
@@ -83,8 +83,18 @@ const HelloPage = () => {
                             }
                         })
                         .then((res) => {
-                            userStore.set(res.data)
-                            navigate("/profile")
+                            switch(res.data.approveStady)
+                            {
+                                case("Wait"):
+                                    navigate("/waitapp");
+                                    break;
+                                case("Reject"):
+                                    navigate("/rejectapp");
+                                    break;
+                                case("Approve"):
+                                    userStore.set(res.data)
+                                    navigate("/profile")
+                            }
                         })
                         .catch((err) => {
                             console.log(err)
