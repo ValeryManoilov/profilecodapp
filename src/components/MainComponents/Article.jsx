@@ -1,8 +1,8 @@
 import H2 from './UI/H2';
 import Button from './UI/Button';
 import styled from 'styled-components';
-import imagee from "../assets/cofe.jpg"
-import imagee2 from "../assets/prog.jpg"
+import imagee from "../../assets/cofe.jpg"
+import imagee2 from "../../assets/prog.jpg"
 
 const ArticlesContainer = styled.div`
   display: flex;

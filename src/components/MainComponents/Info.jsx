@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import avatarka from "../assets/avatarka.jpg"
-import frontend from "../assets/frontend.svg"
-import backend from "../assets/backend.svg"
-import exit from "../assets/exit.svg"
-import edit from "../assets/edit.svg"
+import avatarka from "../../assets/avatarka.jpg"
+import frontend from "../../assets/frontend.svg"
+import backend from "../../assets/backend.svg"
+import exit from "../../assets/exit.svg"
+import edit from "../../assets/edit.svg"
 
 const ProfileCardWrapper = styled.div`
   display: flex;
@@ -138,7 +138,6 @@ const ProfileActions = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
-  
 `;
 
 const ActionImage1 = styled.img`

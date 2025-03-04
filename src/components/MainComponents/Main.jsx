@@ -5,7 +5,7 @@ import MainContainer from "./MainContainer"
 import "./css/main.css"
 
 
-const Main= () => {
+const Main = () => {
   
   
     return (
