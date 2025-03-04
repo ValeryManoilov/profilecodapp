@@ -37,16 +37,8 @@ function AdminPanel()
 {
     const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        axios.get("https://localhost:7062/admin/getwaitapp")
-        .then((res) => {
-            setUsers(res.data)
-        })
-        .catch((err) => console.log(err))
-    }, [RejectApp, ApproveApp]);
-
     const RejectApp = useCallback((TelegramId) => 
-    {
+        {
         axios.post("https://localhost:7062/admin/rejectapp", {
             telegramId: TelegramId
         },
@@ -73,6 +65,15 @@ function AdminPanel()
         })
         .then((res) => console.log(res))
     }, [])
+
+
+    useEffect(() => {
+        axios.get("https://localhost:7062/admin/getwaitapp")
+        .then((res) => {
+            setUsers(res.data)
+        })
+        .catch((err) => console.log(err))
+    }, [RejectApp, ApproveApp]);
 
     return(
         <AdminPanelContainer>
