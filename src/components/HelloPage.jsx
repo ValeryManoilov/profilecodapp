@@ -115,7 +115,7 @@ const HelloPage = () => {
         console.log(values.aboutMe);
         console.log(values.group);
         console.log(values.course);
-        
+
         axios.post("https://localhost:7062/user/sendapp", 
             {
                 telegramId: telegramId,
@@ -175,7 +175,10 @@ const HelloPage = () => {
             course: '',
         },
         validationSchema: validSchemeUser,
-        onSubmit: (values) => {AddUser(values)}
+        onSubmit: (values) => {
+            console.log(values)
+            AddUser(values)
+        }
     })
 
     const formikAdmin = useFormik({
@@ -183,7 +186,10 @@ const HelloPage = () => {
             username: '',
             password: '',
         },
-        onSubmit: (values) => {AdminAuth(values)}
+        onSubmit: (values) => {
+            console.log(values)
+            AdminAuth(values)
+        }
     })
 
     return(
