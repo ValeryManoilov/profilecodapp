@@ -63,7 +63,6 @@ const HelloPage = () => {
                     const user = tg.initDataUnsafe.user;
     
                     setId(user.id)
-                    console.log(user.id)
                     
                     var response = await axios.get("https://localhost:7062/user/isadmin", {
                         params: { telegramId: user.id }
