@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 
 export const AdminPanelContainer = styled.div`
@@ -46,7 +46,7 @@ function AdminPanel()
         .catch((err) => console.log(err))
     }, [RejectApp, ApproveApp]);
 
-    function RejectApp(TelegramId)
+    const RejectApp = useCallback((TelegramId) => 
     {
         axios.post("https://localhost:7062/admin/rejectapp", {
             telegramId: TelegramId
@@ -59,9 +59,9 @@ function AdminPanel()
         })
         .then((res) => console.log(res))
         .catch((err) => console.log(err))
-    }
+    })
 
-    function ApproveApp(TelegramId)
+    const ApproveApp = useCallback((TelegramId) => 
     {
         axios.post("https://localhost:7062/admin/approveapp", {
             telegramId: TelegramId
@@ -73,7 +73,7 @@ function AdminPanel()
             }
         })
         .then((res) => console.log(res))
-    }
+    })
 
     return(
         <AdminPanelContainer>
