@@ -112,7 +112,7 @@ const HelloPage = () => {
         console.log(values.email);
         console.log(values.password);
         console.log(values.description);
-        console.log(values.aboutMe);
+        console.log(values.aboutme);
         console.log(values.group);
         console.log(values.course);
 
@@ -123,7 +123,7 @@ const HelloPage = () => {
                 email: values.email,
                 password: values.password,
                 description: values.description,
-                aboutMe: values.aboutMe,
+                aboutMe: values.aboutme,
                 group: values.group,
                 course: values.course,
             },
