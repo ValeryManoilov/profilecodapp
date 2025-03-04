@@ -177,6 +177,7 @@ const HelloPage = () => {
         validationSchema: validSchemeUser,
         onSubmit: (values) => {
             console.log(values)
+            AddUser(values)
         }
     })
 
