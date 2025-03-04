@@ -44,14 +44,12 @@ function AdminPanel()
             setUsers(res.data)
         })
         .catch((err) => console.log(err))
-    }, []);
+    }, [RejectApp, ApproveApp]);
 
-    function RejectApp(telegramId)
+    function RejectApp(TelegramId)
     {
-        console.log(telegramId)
-        console.log(telegramId)
         axios.post("https://localhost:7062/admin/rejectapp", {
-            telegramId: telegramId
+            telegramId: TelegramId
         },
         {
             headers:
@@ -60,12 +58,13 @@ function AdminPanel()
             }
         })
         .then((res) => console.log(res))
+        .catch((err) => console.log(err))
     }
 
-    function ApproveApp(telegramId)
+    function ApproveApp(TelegramId)
     {
         axios.post("https://localhost:7062/admin/approveapp", {
-            telegramId: telegramId
+            telegramId: TelegramId
         },
         {
             headers:
