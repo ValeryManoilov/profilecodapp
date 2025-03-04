@@ -16,9 +16,8 @@ const Label= styled.button`
 
 const HomeworkComponent = styled.div`
   flex: 1;
-
-  
 `;
+
 const P = styled.p`
     text-align:start;
      color: #393837;
