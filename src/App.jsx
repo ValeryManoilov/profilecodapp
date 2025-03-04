@@ -13,8 +13,8 @@ const App = observer(() => {
         <Route path="/" element={<HelloPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/adminpanel" element={<AdminPanel />} />
-        <Route path="/rejectapp" element={<StadyAppPage stady="reject"/>}/>
-        <Route path="/waitapp" element={<StadyAppPage stady="wait"/>}/>
+        <Route path="/rejectapp" element={<StadyAppPage stady="Reject"/>}/>
+        <Route path="/waitapp" element={<StadyAppPage stady="Wait"/>}/>
       </Routes>
     </BrowserRouter>
   )

@@ -1,5 +1,6 @@
 const StadyAppPage = (props) => 
 {
+    console.log("Stady:", props.stady);
     return(
         <div>
             {

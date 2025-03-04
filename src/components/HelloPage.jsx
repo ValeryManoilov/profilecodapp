@@ -84,6 +84,7 @@ const HelloPage = () => {
                         })
                         .then((res) => {
                             console.log(res.data.approveStady)
+                            console.log(res.data.approveStady == "Wait")
                             switch(res.data.approveStady)
                             {
                                 case("Wait"):
