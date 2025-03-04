@@ -28,18 +28,12 @@ const P = styled.p`
 color: white;
 `;
 
-
-
-
-
 const Div1 = styled.div`
   display: flex;
 flex-direction: column;
 gap: 8px;
 
 `;
-
-
 
 const Div2 = styled.div`
   display: flex;

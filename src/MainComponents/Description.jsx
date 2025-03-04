@@ -18,7 +18,6 @@ const Description = ({  infa }) => {
     <>
     <H2>Обо мне</H2>
     <P>{infa}</P>
-    
     </>
   );
 };
