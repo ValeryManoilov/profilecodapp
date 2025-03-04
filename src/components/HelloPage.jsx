@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik"
 import userStore from "../stores/UserStore";
 import { useNavigate } from "react-router-dom";
+import eight from "../assets/8.jpg"
 
 export const RegistrationContainer = styled.div`
 
@@ -196,6 +197,7 @@ const HelloPage = () => {
 
     return(
         <>
+            <img src={eight} alt="" />
             {
                 isAdmin
                 ?
