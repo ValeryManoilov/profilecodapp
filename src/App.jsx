@@ -5,7 +5,7 @@ import ProfilePage from './components/ProfilePage'
 import { observer } from "mobx-react"
 import AdminPanel from './components/AdminPanel'
 import StadyAppPage from './components/StadyAppPage'
-import Main from './MainComponents/Main'
+import Main from './components/MainComponents/Main'
 
 const App = observer(() => {
   return (
