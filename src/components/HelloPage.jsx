@@ -123,7 +123,7 @@ const HelloPage = () => {
                 email: values.email,
                 password: values.password,
                 description: values.description,
-                aboutMe: values.aboutme,
+                aboutMe: values.aboutMe,
                 group: values.group,
                 course: values.course,
             },
