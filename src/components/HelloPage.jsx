@@ -107,11 +107,18 @@ const HelloPage = () => {
 
     function AddUser(values)
     {
-        const user = window.Telegram.WebApp.initDataUnsafe.user;
-        console.log(user.id)
+        console.log(telegramId);
+        console.log(values.username);
+        console.log(values.email);
+        console.log(values.password);
+        console.log(values.description);
+        console.log(values.aboutMe);
+        console.log(values.group);
+        console.log(values.course);
+        
         axios.post("https://localhost:7062/user/sendapp", 
             {
-                telegramId: user.id,
+                telegramId: telegramId,
                 userName: values.username,
                 email: values.email,
                 password: values.password,
