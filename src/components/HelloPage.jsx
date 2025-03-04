@@ -107,15 +107,6 @@ const HelloPage = () => {
 
     function AddUser(values)
     {
-        console.log(telegramId);
-        console.log(values.username);
-        console.log(values.email);
-        console.log(values.password);
-        console.log(values.description);
-        console.log(values.aboutme);
-        console.log(values.group);
-        console.log(values.course);
-
         axios.post("https://localhost:7062/user/sendapp", 
             {
                 userName: values.username,
@@ -157,7 +148,6 @@ const HelloPage = () => {
     )
         .then((res) => 
         {
-            console.log(res);
             navigate("/adminpanel")
         })
         .catch((err) => console.log(err));
@@ -176,7 +166,6 @@ const HelloPage = () => {
         },
         validationSchema: validSchemeUser,
         onSubmit: (values) => {
-            console.log(values)
             AddUser(values)
         }
     })
@@ -187,7 +176,6 @@ const HelloPage = () => {
             password: '',
         },
         onSubmit: (values) => {
-            console.log(values)
             AdminAuth(values)
         }
     })
