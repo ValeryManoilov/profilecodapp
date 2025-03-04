@@ -59,7 +59,7 @@ function AdminPanel()
         })
         .then((res) => console.log(res))
         .catch((err) => console.log(err))
-    })
+    }, [])
 
     const ApproveApp = useCallback((TelegramId) => 
     {
@@ -73,7 +73,7 @@ function AdminPanel()
             }
         })
         .then((res) => console.log(res))
-    })
+    }, [])
 
     return(
         <AdminPanelContainer>
