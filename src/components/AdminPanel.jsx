@@ -64,6 +64,7 @@ function AdminPanel()
     function ApproveApp(telegramId)
     {
         console.log(telegramId)
+        console.log(telegramId)
         axios.post("https://localhost:7062/admin/approveapp", {
             telegramId: telegramId
         },
