@@ -185,6 +185,7 @@ const HelloPage = () => {
                 isAdmin
                 ?
                 <AdminAuthorizeContainer>
+                    <Title>Admin confirm</Title>
                     <form onSubmit={formikAdmin.handleSubmit}>
                         <InputText>Username</InputText>
                         <Input 
