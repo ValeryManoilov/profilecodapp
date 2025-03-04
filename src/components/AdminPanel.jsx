@@ -49,6 +49,7 @@ function AdminPanel()
     function RejectApp(telegramId)
     {
         console.log(telegramId)
+        console.log(telegramId)
         axios.post("https://localhost:7062/admin/rejectapp", {
             telegramId: telegramId
         },
@@ -63,8 +64,6 @@ function AdminPanel()
 
     function ApproveApp(telegramId)
     {
-        console.log(telegramId)
-        console.log(telegramId)
         axios.post("https://localhost:7062/admin/approveapp", {
             telegramId: telegramId
         },
@@ -89,8 +88,12 @@ function AdminPanel()
                 users.map((el) => (
                     <ApplicationContainer id={el.telegramId}>
                         {el.userName}
-                        <ApproveButton onClick={() => ApproveApp(el.telegramId)}/>
-                        <RejectButton onClick={() => RejectApp(el.telegramId)}/>
+                        <ApproveButton onClick={() => ApproveApp(el.telegramId)}>
+                            Добавить
+                        </ApproveButton>
+                        <RejectButton onClick={() => RejectApp(el.telegramId)}>
+                            Отклонить
+                        </RejectButton>
                     </ApplicationContainer>
                 ))
             }
