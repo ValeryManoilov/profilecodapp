@@ -11,7 +11,7 @@ const App = observer(() => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<RegistrationPage />} />
+        <Route path="/" element={<StadyAppPage stady="Reject"/>} />
         <Route path="/profile" element={<Main />} />
         <Route path="/adminpanel" element={<AdminPanel />} />
         <Route path="/rejectapp" element={<StadyAppPage stady="Reject"/>}/>

@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import { useFormik } from "formik"
 import userStore from "../stores/UserStore";
 import { useNavigate } from "react-router-dom";
-import eight from "../assets/8.jpg"
 
 export const RegistrationContainer = styled.div`
     margin: 0 auto;
@@ -206,7 +205,7 @@ const RegistrationPage = () => {
         .then((res) => 
         {
             userStore.set(res.data)
-            navigate("/profile")
+            navigate("/waitapp")
         })
         .catch((err) => console.log(err))
     };
@@ -264,7 +263,7 @@ const RegistrationPage = () => {
             {
                 isAdmin
                 ?
-                <RegistrationContainer>
+                <AdminAuthorizeContainer>
                     <Title>Вход в админ-панель</Title>
                     <form onSubmit={formikAdmin.handleSubmit}>
                         <InputText>Логин</InputText>
@@ -282,7 +281,7 @@ const RegistrationPage = () => {
                         />
                         <button type="submit">auth</button>
                     </form>
-                </RegistrationContainer> 
+                </AdminAuthorizeContainer> 
                 :
                 <RegistrationContainer>
                     <RegistrationContent>
