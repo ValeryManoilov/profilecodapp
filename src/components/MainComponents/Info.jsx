@@ -169,7 +169,7 @@ const Info = () => {
                 <ProfileImage src={avatarka} alt="Фото профиля" />
                 <ProfileInfo>
                         <ProfileName>{userStore.user.username}</ProfileName>
-                        <ProfileDetails>{userStore.user.courseNumber}</ProfileDetails>
+                        <ProfileDetails>{userStore.user.course}</ProfileDetails>
                         <ProfileBio>{userStore.user.aboutMe}</ProfileBio>
                         <ProfileRanks>
                         <Rank href={frontendLink} target="_blank" rel="noopener noreferrer">
