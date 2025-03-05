@@ -197,7 +197,6 @@ const HelloPage = () => {
 
     return(
         <>
-            <img src={eight} alt="" />
             {
                 isAdmin
                 ?
