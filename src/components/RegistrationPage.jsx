@@ -101,12 +101,13 @@ export const SendAppButton = styled.button`
 
 
 const validSchemeUser = Yup.object().shape({
-    username: Yup.string().max(20, "Too large").min(4, "Too less").required("Поле обязательно!"),
-    email: Yup.string().max(20, "Too large").min(4, "Too less").required("Поле обязательно!"),
-    description: Yup.string().max(20, "Too large").min(4, "Too less").required("Поле обязательно!"),
-    aboutme: Yup.string().max(20, "Too large").min(4, "Too less").required("Поле обязательно!"),
-    group: Yup.string().max(20, "Too large").min(4, "Too less").required("Поле обязательно!"),
-    rating: Yup.string().max(20, "Too large").min(4, "Too less").required("Поле обязательно!"),
+    username: Yup.string().max(20, "Превышен лимит символов (20)").min(4, "Слишком мало символов").required("Поле обязательно!"),
+    email: Yup.string().max(20, "Превышен лимит символов (20)").min(4, "Слишком мало символов").required("Поле обязательно!"),
+    password: Yup.string().max(20, "Превышен лимит символов (20)").min(4, "Слишком мало символов").required("Поле обязательно!"),
+    description: Yup.string().max(20, "Превышен лимит символов (20)").min(4, "Слишком мало символов").required("Поле обязательно!"),
+    aboutme: Yup.string().max(20, "Превышен лимит символов (20)").min(4, "Слишком мало символов").required("Поле обязательно!"),
+    group: Yup.string().max(20, "Превышен лимит символов (20)").min(4, "Слишком мало символов").required("Поле обязательно!"),
+    course: Yup.string().max(20, "Превышен лимит символов (20)").min(4, "Слишком мало символов").required("Поле обязательно!"),
 })
 
 const RegistrationPage = () => {
