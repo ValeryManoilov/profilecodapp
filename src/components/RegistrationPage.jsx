@@ -301,6 +301,8 @@ const RegistrationPage = () => {
                                         value={formikUser.values.username}
                                         onChange={formikUser.handleChange}
                                     />
+                                    {formikUser.errors.username && formikUser.touched.username 
+                                    && (<div>{formikUser.errors.username}</div>)}
                                 </InputItems>
                                 <InputItems>
                                     <InputText>Пароль</InputText>
@@ -310,6 +312,8 @@ const RegistrationPage = () => {
                                         value={formikUser.values.password}
                                         onChange={formikUser.handleChange}
                                     />
+                                    {formikUser.errors.password && formikUser.touched.password 
+                                    && (<div>{formikUser.errors.password}</div>)}
                                 </InputItems>
                                 <InputItems>
                                     <InputText>Почта</InputText>
@@ -319,6 +323,8 @@ const RegistrationPage = () => {
                                         value={formikUser.values.email}
                                         onChange={formikUser.handleChange}
                                     />
+                                    {formikUser.errors.email && formikUser.touched.email 
+                                    && (<div>{formikUser.errors.email}</div>)}
                                 </InputItems>
                                 <InputItems>
                                     <InputText>Краткое описание</InputText>
@@ -328,6 +334,8 @@ const RegistrationPage = () => {
                                         value={formikUser.values.description}
                                         onChange={formikUser.handleChange}
                                     />
+                                    {formikUser.errors.description && formikUser.touched.description 
+                                    && (<div>{formikUser.errors.description}</div>)}
                                 </InputItems>
                                 <InputItems>
                                     <InputText>Подробное описание</InputText>
@@ -337,6 +345,8 @@ const RegistrationPage = () => {
                                         value={formikUser.values.aboutme}
                                         onChange={formikUser.handleChange}
                                     />
+                                    {formikUser.errors.aboutme && formikUser.touched.aboutme 
+                                    && (<div>{formikUser.errors.aboutme}</div>)}
                                 </InputItems>
                                 <InputItems>
                                     <InputText>Группа</InputText>
@@ -346,6 +356,8 @@ const RegistrationPage = () => {
                                         value={formikUser.values.group}
                                         onChange={formikUser.handleChange}
                                     />
+                                    {formikUser.errors.group && formikUser.touched.group 
+                                    && (<div>{formikUser.errors.group}</div>)}
                                 </InputItems>
                                 <InputItems>
                                     <InputText>Номер курса</InputText>
@@ -355,6 +367,8 @@ const RegistrationPage = () => {
                                         value={formikUser.values.course}
                                         onChange={formikUser.handleChange}
                                     />
+                                    {formikUser.errors.course && formikUser.touched.course 
+                                    && (<div>{formikUser.errors.course}</div>)}
                                 </InputItems>
                                 <SendAppButton type="submit">Создать</SendAppButton>
                             </UserForm>
