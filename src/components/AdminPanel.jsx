@@ -164,12 +164,12 @@ function AdminPanel()
                         users.map((el) => (
                             <ApplicationContainer>
                                 <DataContainer>
-                                    <DataText>Username: {el.username}</DataText>
-                                    <DataText>Email: {el.email}</DataText>
-                                    <DataText>Group: {el.group}</DataText>
-                                    <DataText>Description: {el.description}</DataText>
-                                    <DataText>About Me: {el.aboutMe}</DataText>
-                                    <DataText>Course: {el.course}</DataText>
+                                    <DataText>Имя: {el.userName}</DataText>
+                                    <DataText>Почта: {el.email}</DataText>
+                                    <DataText>Группа: {el.group}</DataText>
+                                    <DataText>Описание: {el.description}</DataText>
+                                    <DataText>Обо мне: {el.aboutMe}</DataText>
+                                    <DataText>Курс: {el.course}</DataText>
                                 </DataContainer>
                                 <ButtonsContainer>
                                     <ApproveButton onClick={() => ApproveApp(el.telegramId)}>
