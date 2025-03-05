@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import vk from "../../assets/Vector.svg"
-import yt from "../../assets/YouTube.svg"
+import {ReactComponent as VkIcon} from "../../assets/Vector.svg"
+import {ReactComponent as YoutubeIcon} from "../../assets/YouTube.svg"
 
 const Footerdiv = styled.div`
 background-color: #393837;
@@ -74,8 +74,8 @@ const Footer = () => {
         </Div1>
         <Div2>
             <Link href="https://t.me/kod_puzzle"><Img src={tg}/></Link>
-            <Link href="https://vk.com/kodprog"><Img src={vk}/></Link>
-            <Link href="https://vk.com/away.php?to=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCDBChulBwtvOj3_ckO8P7sw"><Img src={yt}/> </Link>
+            <Link href="https://vk.com/kodprog"><VkIcon/></Link>
+            <Link href="https://vk.com/away.php?to=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCDBChulBwtvOj3_ckO8P7sw"><YoutubeIcon/> </Link>
         </Div2>
     </Footerdiv>   
   );
