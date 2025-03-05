@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import {ReactComponent as VkIcon} from "/src/assets/Vector.svg"
-import {ReactComponent as YoutubeIcon} from "/src/assets/YouTube.svg"
+import {ReactComponent as VkIcon} from "../../assets/Vector.svg"
+import {ReactComponent as YoutubeIcon} from "../../assets/YouTube.svg"
 
 const Footerdiv = styled.div`
 background-color: #393837;
