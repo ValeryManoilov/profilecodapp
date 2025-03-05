@@ -1,4 +1,5 @@
 import axios from "axios";
+import { set } from "mobx";
 import { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 
@@ -22,8 +23,11 @@ export const Button = styled.button`
 `
 
 export const ApproveButton = styled(Button)`
+
 `
+
 export const RejectButton = styled(Button)`
+
 `
 
 export const Title = styled.h1`
@@ -36,7 +40,7 @@ export const ApplicationTitle = styled.h2`
 function AdminPanel()
 {
     const [users, setUsers] = useState([]);
-
+    const [flag, setFlag] = useState(true)
     const RejectApp = useCallback((TelegramId) => 
         {
         axios.post("https://localhost:7062/admin/rejectapp", {
@@ -48,7 +52,10 @@ function AdminPanel()
                 "Content-Type":"application/json"
             }
         })
-        .then((res) => console.log(res))
+        .then((res) => {
+            setFlag(!flag)
+            console.log(res)}
+        )
         .catch((err) => console.log(err))
     }, [])
 
@@ -63,7 +70,10 @@ function AdminPanel()
                 "Content-Type":"application/json"
             }
         })
-        .then((res) => console.log(res))
+        .then((res) => {
+            setFlag(!flag)
+            console.log(res)
+        })
     }, [])
 
 
@@ -73,7 +83,7 @@ function AdminPanel()
             setUsers(res.data)
         })
         .catch((err) => console.log(err))
-    }, [RejectApp, ApproveApp]);
+    }, [flag]);
 
     return(
         <AdminPanelContainer>
