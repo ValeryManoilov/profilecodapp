@@ -6,6 +6,7 @@ import { observer } from "mobx-react"
 import AdminPanel from './components/AdminPanel'
 import StadyAppPage from './components/StadyAppPage'
 import Main from './components/MainComponents/Main'
+import TestPage from './components/TestPageComponents/TestPage'
 
 const App = observer(() => {
   return (
@@ -16,6 +17,7 @@ const App = observer(() => {
         <Route path="/adminpanel" element={<AdminPanel />} />
         <Route path="/rejectapp" element={<StadyAppPage stady="Reject"/>}/>
         <Route path="/waitapp" element={<StadyAppPage stady="Wait"/>}/>
+        <Route path="/test" element={<TestPage />}/>
       </Routes>
     </BrowserRouter>
   )

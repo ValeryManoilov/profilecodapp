@@ -12,15 +12,12 @@ const Main= () => {
       <>
       <div className="Wrapper">
         <div className="Container">
-        <Info/>
+          <Info/>
           <Description/>
           <MainContainer/>
-         
-
         </div>
         <Footer/>
-        </div>
-
+      </div>
       </>
     )
   }

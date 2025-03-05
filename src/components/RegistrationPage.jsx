@@ -81,7 +81,27 @@ export const Input = styled.input`
 export const AdminAuthorizeContainer = styled.div`
 `
 
-export const SendAppButton = styled.button`
+export const Button = styled.button`
+    padding: 0.5em 1em;
+    font-size: 1em;
+    box-sizing: border-box;
+    flex-grow: 0;
+    border: 1px solid #2384E3;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 1em;
+    background-color: #FFFFFF;
+
+    &:hover{
+        background-color: #2384E3;
+        color: #FFFFFF;
+    }
+`
+
+export const TestPageButton = styled(Button)`
+`
+
+export const SendAppButton = styled(Button)`
     padding: 0.5em 1em;
     font-size: 1em;
     box-sizing: border-box;
@@ -258,6 +278,11 @@ const RegistrationPage = () => {
         }
     })
 
+    function TestPageRedirect()
+    {
+        navigate("/test")
+    }
+
     return(
         <>
             {
@@ -373,6 +398,9 @@ const RegistrationPage = () => {
                                 <SendAppButton type="submit">Создать</SendAppButton>
                             </UserForm>
                         </InputContainer>
+                        <TestPageButton onClick={TestPageRedirect}>
+                            Перейти на тестовую страницу
+                        </TestPageButton>
                     </RegistrationContent>
                 </RegistrationContainer>
             }
