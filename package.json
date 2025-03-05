@@ -21,6 +21,7 @@
     "react-mobx": "^0.0.4",
     "react-router-dom": "^7.2.0",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-svg": "^2.0.0",
     "styled-components": "^6.1.15",
     "vite-plugin-svgr": "^4.3.0",
     "yup": "^1.6.1"

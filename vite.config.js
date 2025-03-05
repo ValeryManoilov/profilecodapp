@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import svgr from 'vite-plugin-svgr';
+import svg from 'rollup-plugin-svg';
 
 export default defineConfig({
   plugins: [
     react(),
-    svgr(),
+    svg(),
     viteStaticCopy({
       targets: [
         {
