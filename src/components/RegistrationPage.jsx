@@ -52,7 +52,7 @@ export const InputContainer = styled.div`
     align-items: start;
 `
 
-export const Form = styled.form`
+export const UserForm = styled.form`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -92,9 +92,6 @@ export const SendAppButton = styled.button`
     transition: all 0.5s;
     border-radius: 1em;
     background-color: #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
 
     &:hover{
         background-color: #2384E3;
@@ -295,7 +292,7 @@ const RegistrationPage = () => {
                             Вступайте в нашу команду! Заполните форму и ожидайте ее одобрения 
                         </Description>
                         <InputContainer>
-                            <Form onSubmit={formikUser.handleSubmit}>
+                            <UserForm onSubmit={formikUser.handleSubmit}>
                                 <InputItems>
                                     <InputText>Логин</InputText>
                                     <Input 
@@ -360,7 +357,7 @@ const RegistrationPage = () => {
                                     />
                                 </InputItems>
                                 <SendAppButton type="submit">Создать</SendAppButton>
-                            </Form>
+                            </UserForm>
                         </InputContainer>
                     </RegistrationContent>
                 </RegistrationContainer>
