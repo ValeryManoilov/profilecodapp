@@ -34,6 +34,8 @@ class UserStore
             aboutMe: userdata.aboutMe,
             course: userdata.course,
         }
+        console.log(userdata)
+        console.log(userdata.course)
     }
 }
 
