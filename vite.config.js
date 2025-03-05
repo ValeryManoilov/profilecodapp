@@ -5,6 +5,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 // https://vite.dev/config/
 export default {
   plugins: [
+    react(),
     viteStaticCopy({
       targets: [
         {
