@@ -1,3 +1,4 @@
+import userStore from '../../stores/UserStore';
 import H2 from './UI/H2';
 import styled from 'styled-components';
 
@@ -16,7 +17,7 @@ const Description = ({  infa }) => {
   return (
     <>
     <H2>Обо мне</H2>
-    <P>{infa}</P>
+    <P>{userStore.user.aboutMe}</P>
     
     </>
   );
