@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import avatarka from "../../assets/avatarka.jpg"
+import userStore from '../../stores/UserStore';
 // import frontend from "../../assets/frontend.svg"
 // import backend from "../../assets/backend.svg"
 // import exit from "../../assets/exit.svg"
@@ -159,7 +160,7 @@ const ActionImage2 = styled(ActionImage1)`
   }
 `;
 
-const Info = ({  name, details, bio, frontendRank, backendRank }) => {
+const Info = () => {
     const frontendLink = "https://infogram.com/bally-frontend-3-kurs-fevral-1h0r6rzx8vkgl4e?live";
     const backendLink = "https://infogram.com/bally-backend-3-kurs-fevral-1hnq41oqm5qkp23?live";
   return (
@@ -167,15 +168,15 @@ const Info = ({  name, details, bio, frontendRank, backendRank }) => {
         <Container1>
                 <ProfileImage src={avatarka} alt="Фото профиля" />
                 <ProfileInfo>
-                        <ProfileName>{name}</ProfileName>
-                        <ProfileDetails>{details}</ProfileDetails>
-                        <ProfileBio>{bio}</ProfileBio>
+                        <ProfileName>{userStore.user.username}</ProfileName>
+                        <ProfileDetails>{userStore.user.courseNumber}</ProfileDetails>
+                        <ProfileBio>{userStore.user.aboutMe}</ProfileBio>
                         <ProfileRanks>
                         <Rank href={frontendLink} target="_blank" rel="noopener noreferrer">
-                            {frontendRank}
+                            {/* {frontendRank} */}
                             </Rank>
                             <Rank href={backendLink}target="_blank" rel="noopener noreferrer">
-                            {backendRank}
+                            {/* {backendRank} */}
                             </Rank>
                         </ProfileRanks>
                 </ProfileInfo>
