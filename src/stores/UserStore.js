@@ -10,7 +10,7 @@ class UserStore
         group: "",
         description: "",
         aboutMe: "",
-        courseNumber: 0,
+        course: '',
     }
 
     constructor()
@@ -32,7 +32,7 @@ class UserStore
             group: userdata.group,
             description: userdata.description,
             aboutMe: userdata.aboutMe,
-            courseNumber: userdata.courseNumber,
+            course: userdata.course,
         }
     }
 }
