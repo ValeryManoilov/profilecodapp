@@ -12,7 +12,7 @@ export default {
           dest: 'assets',
         },
         {
-          src: 'src/images/*',
+          src: 'src/assets/*',
           dest: 'assets',
         },
       ],
