@@ -19,6 +19,12 @@ export const AdminPanelContent = styled.div`
     flex-direction: column;
     align-items: start;
     gap: 1em;
+    @media (max-width: 768px){
+        width: 100%;
+    }
+    @media (max-width: 1024px){
+        width: 80%;
+    }
 `
  
 export const AdminPanelTitle = styled.h1`
