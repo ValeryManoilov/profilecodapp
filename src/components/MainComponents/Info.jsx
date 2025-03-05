@@ -170,7 +170,7 @@ const Info = () => {
                 <ProfileInfo>
                         <ProfileName>{userStore.user.username}</ProfileName>
                         <ProfileDetails>{userStore.user.course}</ProfileDetails>
-                        <ProfileBio>{userStore.user.aboutMe}</ProfileBio>
+                        <ProfileBio>{userStore.user.description}</ProfileBio>
                         <ProfileRanks>
                         <Rank href={frontendLink} target="_blank" rel="noopener noreferrer">
                             {/* {frontendRank} */}

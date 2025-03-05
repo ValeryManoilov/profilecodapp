@@ -1,5 +1,5 @@
 import './App.css'
-import HelloPage from './components/HelloPage'
+import RegistrationPage from './components/RegistrationPage'
 import { Routes, BrowserRouter, Route } from "react-router-dom"
 import ProfilePage from './components/ProfilePage'
 import { observer } from "mobx-react"
@@ -11,7 +11,7 @@ const App = observer(() => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HelloPage />} />
+        <Route path="/" element={<RegistrationPage />} />
         <Route path="/profile" element={<Main />} />
         <Route path="/adminpanel" element={<AdminPanel />} />
         <Route path="/rejectapp" element={<StadyAppPage stady="Reject"/>}/>
