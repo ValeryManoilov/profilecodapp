@@ -27,7 +27,7 @@ class UserStore
     {
         this.user = {
             telegramId: userdata.telegramId,
-            username: userdata.username,
+            username: userdata.userName,
             email: userdata.email,
             group: userdata.group,
             description: userdata.description,
