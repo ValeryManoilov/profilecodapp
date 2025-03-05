@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import tg from "../../assets/group 1.svg"
 import vk from "../../assets/Vector.svg"
 import yt from "../../assets/YouTube.svg"
 
