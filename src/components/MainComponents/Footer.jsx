@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import vk from "../../assets/Vector.svg"
-import yt from "../../assets/YouTube.svg"
 
 const Footerdiv = styled.div`
 background-color: #393837;
@@ -74,7 +72,7 @@ const Footer = () => {
         </Div1>
         <Div2>
             <Link href="https://t.me/kod_puzzle">
-            
+
             </Link>
             <Link href="https://vk.com/kodprog">
               <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
