@@ -2,7 +2,7 @@ import Description from "./Description"
 import Footer from "./Footer"
 import Info from "./Info"
 import MainContainer from "./MainContainer"
-import "./main.css"
+import "../../css/main.css"
 
 
 const TestPage = () => {
