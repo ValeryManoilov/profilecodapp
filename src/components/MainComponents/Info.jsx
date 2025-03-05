@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import avatarka from "../../assets/avatarka.jpg"
-import frontend from "../../assets/frontend.svg"
-import backend from "../../assets/backend.svg"
-import exit from "../../assets/exit.svg"
-import edit from "../../assets/edit.svg"
+// import frontend from "../../assets/frontend.svg"
+// import backend from "../../assets/backend.svg"
+// import exit from "../../assets/exit.svg"
+// import edit from "../../assets/edit.svg"
 
 const ProfileCardWrapper = styled.div`
   display: flex;
@@ -172,11 +172,9 @@ const Info = ({  name, details, bio, frontendRank, backendRank }) => {
                         <ProfileBio>{bio}</ProfileBio>
                         <ProfileRanks>
                         <Rank href={frontendLink} target="_blank" rel="noopener noreferrer">
-                            <RankImage src={frontend} alt="" />
                             {frontendRank}
                             </Rank>
                             <Rank href={backendLink}target="_blank" rel="noopener noreferrer">
-                            <RankImage src={backend} alt="" />
                             {backendRank}
                             </Rank>
                         </ProfileRanks>
@@ -185,8 +183,6 @@ const Info = ({  name, details, bio, frontendRank, backendRank }) => {
 
      
       <ProfileActions>
-        <ActionImage1 src={edit} alt="Редактировать" />
-        <ActionImage2 src={exit} alt="Выйти" />
       </ProfileActions>
 
     </ProfileCardWrapper>
