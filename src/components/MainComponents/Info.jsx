@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import avatarka from "../../assets/avatarka.jpg"
 import userStore from '../../stores/UserStore';
+import frontendRank from "../../assets/frontend.png";
+import backendRank from "../../assets/backend.png";
 
 const ProfileCardWrapper = styled.div`
   display: flex;
@@ -169,10 +171,10 @@ const Info = () => {
                         <ProfileBio>{userStore.user.description}</ProfileBio>
                         <ProfileRanks>
                         <Rank href={frontendLink} target="_blank" rel="noopener noreferrer">
-                            {/* {frontendRank} */}
+                            {frontendRank}
                             </Rank>
                             <Rank href={backendLink}target="_blank" rel="noopener noreferrer">
-                            {/* {backendRank} */}
+                            {backendRank}
                             </Rank>
                         </ProfileRanks>
                 </ProfileInfo>
