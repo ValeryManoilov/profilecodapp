@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import avatarka from "../../assets/avatarka.jpg"
+import frontendRank from "../../assets/frontend.png"
+import backendRank from "../../assets/backend.png"
 
 const ProfileCardWrapper = styled.div`
   display: flex;
