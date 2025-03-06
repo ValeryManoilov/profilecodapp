@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import avatarka from "../../assets/avatarka.jpg"
-import frontendRank from "../../assets/frontend.png"
-import backendRank from "../../assets/backend.png"
+import frontend from "../../assets/frontend.png"
+import backend from "../../assets/backend.png"
 
 const ProfileCardWrapper = styled.div`
   display: flex;
@@ -170,10 +170,10 @@ const Info = ({  name, details, bio, frontendRank, backendRank }) => {
                         <ProfileBio>{bio}</ProfileBio>
                         <ProfileRanks>
                         <Rank href={frontendLink} target="_blank" rel="noopener noreferrer">
-                            <img src={frontendRank} alt="" />
+                              <RankImage src={frontendRank}/>
                             </Rank>
                             <Rank href={backendLink}target="_blank" rel="noopener noreferrer">
-                            <img src={backendRank} alt="" />
+                              <RankImage src={backendRank}/>
                             </Rank>
                         </ProfileRanks>
                 </ProfileInfo>
