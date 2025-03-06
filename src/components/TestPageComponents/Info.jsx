@@ -170,10 +170,10 @@ const Info = ({  name, details, bio, frontendRank, backendRank }) => {
                         <ProfileBio>{bio}</ProfileBio>
                         <ProfileRanks>
                         <Rank href={frontendLink} target="_blank" rel="noopener noreferrer">
-                              <RankImage src={frontendRank}/>
+                              <RankImage src={frontend}/>
                             </Rank>
                             <Rank href={backendLink}target="_blank" rel="noopener noreferrer">
-                              <RankImage src={backendRank}/>
+                              <RankImage src={backend}/>
                             </Rank>
                         </ProfileRanks>
                 </ProfileInfo>
