@@ -171,9 +171,11 @@ const Info = ({  name, details, bio, frontendRank, backendRank }) => {
                         <ProfileRanks>
                         <Rank href={frontendLink} target="_blank" rel="noopener noreferrer">
                               <RankImage src={frontend}/>
+                              {frontendRank}
                             </Rank>
                             <Rank href={backendLink}target="_blank" rel="noopener noreferrer">
                               <RankImage src={backend}/>
+                              {backendRank}
                             </Rank>
                         </ProfileRanks>
                 </ProfileInfo>
